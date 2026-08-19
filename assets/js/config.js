@@ -1,1 +1,0 @@
-window.TERRAZAS={whatsapp:'56978893044',email:'contacto@terrazasdelfraile.cl',maps:'https://maps.app.goo.gl/EqW9bXFUr24gWtYn7?g_st=aw',masterplan:'https://virtualplan360.cl/masterplan/terrazas_del_fraile/index.html',brochure:'https://drive.google.com/file/d/1yutACItdgTyZwsMveAAFdr8eIs_PVHwu/view?usp=sharing'};
