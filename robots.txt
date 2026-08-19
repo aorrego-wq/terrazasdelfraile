@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://terrazasdelfraile.cl/sitemap.xml
