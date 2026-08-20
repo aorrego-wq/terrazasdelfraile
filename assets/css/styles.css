@@ -343,6 +343,7 @@ h2{font-size:clamp(1.65rem,2.42vw,2.65rem);line-height:1.12}
 .price-card.mid-tone{background:#b9bca9;color:var(--forest);border-color:#a4aa98}
 .price-card.mid-tone .eyebrow{color:#665a3d}
 .price-card.mid-tone p{color:#33402f}
+.direct-credit-note{margin:22px 0 0;padding-top:16px;border-top:1px solid rgba(48,64,44,.14);font-size:.88rem;font-weight:700;color:var(--forest)}
 
 /* Ubicación */
 .location-heading{max-width:980px;margin:0 auto 28px}
