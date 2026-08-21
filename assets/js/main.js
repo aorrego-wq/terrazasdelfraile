@@ -5,6 +5,41 @@ const onScroll=()=>header?.classList.toggle('scrolled',window.scrollY>30); onScr
 toggle?.addEventListener('click',()=>nav.classList.toggle('open'));
 document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
 
+// Envío AJAX compartido por todos los formularios de contacto.
+// Evita la pantalla de CAPTCHA de FormSubmit y redirige a la página de gracias.
+document.querySelectorAll('form.contact-form').forEach(form=>{
+  form.addEventListener('submit',async event=>{
+    event.preventDefault();
+
+    const button=form.querySelector('button[type="submit"]');
+    const status=form.querySelector('.form-status');
+    const originalLabel=button?.textContent;
+
+    if(button){
+      button.disabled=true;
+      button.textContent='Enviando…';
+    }
+    if(status) status.textContent='Enviando tus datos de forma segura…';
+
+    try{
+      const response=await fetch('https://formsubmit.co/ajax/parcelasconrio@gmail.com',{
+        method:'POST',
+        headers:{Accept:'application/json'},
+        body:new FormData(form)
+      });
+
+      if(!response.ok) throw new Error('No fue posible completar el envío');
+      location.href='https://terrazasdelfraile.cl/gracias.html';
+    }catch(error){
+      if(status) status.textContent='No pudimos enviar tu consulta. Inténtalo nuevamente.';
+      if(button){
+        button.disabled=false;
+        button.textContent=originalLabel||'Enviar consulta';
+      }
+    }
+  });
+});
+
 // Hero de cuatro estaciones — carga progresiva y crossfade.
 (()=>{
   const hero=document.querySelector('[data-seasonal-hero]');
