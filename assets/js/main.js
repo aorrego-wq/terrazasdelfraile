@@ -29,7 +29,7 @@ document.querySelectorAll('form.contact-form').forEach(form=>{
       });
 
       if(!response.ok) throw new Error('No fue posible completar el envío');
-      location.href='https://terrazasdelfraile.cl/gracias.html';
+      location.href='https://terrazasdelfraile.cl/gracias';
     }catch(error){
       if(status) status.textContent='No pudimos enviar tu consulta. Inténtalo nuevamente.';
       if(button){
