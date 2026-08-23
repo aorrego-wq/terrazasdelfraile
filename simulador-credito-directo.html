@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W4DTTXV6');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Simulador de crédito directo | Terrazas del Fraile</title>
+<meta content="Simula el pie y las cuotas de crédito directo para una parcela en Terrazas del Fraile." name="description"/>
+<link href="https://terrazasdelfraile.cl/simulador-credito-directo" rel="canonical"/>
+<meta content="Simulador de crédito directo | Terrazas del Fraile" property="og:title"/>
+<meta content="Simula el pie y las cuotas para tu parcela en la Patagonia chilena." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="assets/logos/logo-header.png" property="og:image"/>
+<link href="assets/logos/isotipo.png" rel="icon"/>
+<link href="assets/css/styles.css?v=20260823-final" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Terrazas del Fraile","url":"https://terrazasdelfraile.cl"}</script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1687363185698793');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1687363185698793&amp;ev=PageView&amp;noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W4DTTXV6"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header class="site-header">
+<div class="container nav">
+<a class="brand" href="/">
+<img alt="Terrazas del Fraile" class="brand-light" src="assets/logos/logo-white.png"/>
+<img alt="Terrazas del Fraile" class="brand-dark" src="assets/logos/logo-header.png"/>
+</a>
+<button aria-label="Abrir menú" class="menu-toggle">☰</button>
+<nav class="nav-links">
+<a href="/">Inicio</a>
+<a href="/el-proyecto">El Proyecto</a>
+<a href="/marina-lago-frio">Marina Lago Frío</a>
+<a href="/centro-de-ski">Centro de Ski</a>
+<a href="/bosque-nativo">Bosque Nativo</a>
+<a href="/patagonia">Patagonia</a>
+<a href="/masterplan">Masterplan</a>
+<a class="active nav-simulator" href="/simulador-credito-directo">Simulador de crédito directo</a>
+<a href="/contacto">Contacto</a>
+<span aria-hidden="true" class="nav-divider"></span>
+<a aria-label="Instagram de Terrazas del Fraile" class="nav-social" href="https://www.instagram.com/terrazasdelfraile/" rel="noopener" target="_blank">
+<svg aria-hidden="true" viewBox="0 0 24 24"><rect height="18" rx="5" width="18" x="3" y="3"></rect><circle cx="12" cy="12" r="4.2"></circle><circle class="social-dot" cx="17.4" cy="6.7" r="1"></circle></svg>
+</a>
+<a aria-label="Facebook de Terrazas del Fraile" class="nav-social" href="https://www.facebook.com/terrazasdelfraile/" rel="noopener" target="_blank">
+<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.2 21v-8h2.8l.4-3h-3.2V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4V10H8v3h2.8v8h3.4z"></path></svg>
+</a>
+<a class="nav-phone" href="tel:+56978893044">+56 9 7889 3044</a>
+</nav>
+</div>
+</header>
+
+<main>
+<section class="simulator-hero">
+<div class="container">
+<div class="eyebrow">Crédito directo</div>
+<h1>Simula tu plan de pago.</h1>
+<p class="lead">Define el monto, el porcentaje de pie y el número de cuotas para obtener una estimación inmediata.</p>
+</div>
+</section>
+
+<section class="simulator-section" id="simulador">
+<div class="container">
+<div class="simulator-shell" data-credit-simulator>
+<section class="simulator-panel" aria-labelledby="simulator-title">
+<div class="simulator-panel-heading">
+<div>
+<div class="eyebrow">Tu simulación</div>
+<h2 id="simulator-title">Configura una alternativa.</h2>
+</div>
+<span class="simulator-no-interest">Sin interés</span>
+</div>
+
+<form class="simulator-form" data-simulator-form>
+<div class="simulator-field simulator-amount-field">
+<label for="simulator-amount">Monto a simular</label>
+<div class="simulator-currency-input">
+<span aria-hidden="true">$</span>
+<input aria-describedby="amount-help" autocomplete="off" data-sim-amount id="simulator-amount" inputmode="numeric" name="monto_simulado" value="35.900.000"/>
+</div>
+<small id="amount-help">Ingresa el valor total en pesos chilenos.</small>
+</div>
+
+<fieldset class="simulator-fieldset">
+<legend>Porcentaje de pie</legend>
+<div class="simulator-options">
+<label class="simulator-choice"><input checked name="sim-pie" type="radio" value="30"/><span><strong>30%</strong><small>de pie</small></span></label>
+<label class="simulator-choice"><input name="sim-pie" type="radio" value="40"/><span><strong>40%</strong><small>de pie</small></span></label>
+<label class="simulator-choice"><input name="sim-pie" type="radio" value="50"/><span><strong>50%</strong><small>de pie</small></span></label>
+</div>
+</fieldset>
+
+<fieldset class="simulator-fieldset">
+<legend>Número de cuotas</legend>
+<div class="simulator-options">
+<label class="simulator-choice"><input checked name="sim-cuotas" type="radio" value="18"/><span><strong>18</strong><small>cuotas</small></span></label>
+<label class="simulator-choice"><input name="sim-cuotas" type="radio" value="24"/><span><strong>24</strong><small>cuotas</small></span></label>
+<label class="simulator-choice"><input name="sim-cuotas" type="radio" value="36"/><span><strong>36</strong><small>cuotas</small></span></label>
+</div>
+</fieldset>
+
+<button class="btn btn-dark simulator-calculate" type="submit">Actualizar simulación</button>
+</form>
+
+<div aria-live="polite" class="simulator-results">
+<div class="simulator-main-result">
+<span>Cuota mensual estimada</span>
+<strong data-result-monthly>$1.396.111</strong>
+<small data-result-plan>18 cuotas · 30% de pie</small>
+</div>
+<div class="simulator-result-grid">
+<div><span>Pie inicial</span><strong data-result-down>$10.770.000</strong></div>
+<div><span>Saldo a financiar</span><strong data-result-balance>$25.130.000</strong></div>
+</div>
+<p class="simulator-disclaimer">Simulación referencial en pesos chilenos. Condiciones y disponibilidad sujetas a confirmación comercial.</p>
+<p class="simulator-disclaimer simulator-uf-disclaimer">Las cuotas se transforman a UF, sin interés.</p>
+<a class="btn btn-whatsapp simulator-whatsapp" data-visit-whatsapp href="https://wa.me/56978893044?text=Hola%2C%20quiero%20agendar%20una%20visita%20a%20Terrazas%20del%20Fraile" rel="noopener" target="_blank">Agendar una visita por WhatsApp</a>
+</div>
+</section>
+
+<aside class="simulator-contact-panel" id="contacto">
+<h2>Hablemos</h2>
+<p>Déjanos tus datos y el equipo comercial se pondrá en contacto contigo para revisar la alternativa simulada.</p>
+<form accept-charset="UTF-8" action="https://formsubmit.co/parcelasconrio@gmail.com" class="contact-form simulator-contact-form" method="POST">
+<input autocomplete="off" class="hp-field" name="_honey" tabindex="-1" type="text"/>
+<input name="_subject" type="hidden" value="Nueva simulación de crédito directo — Terrazas del Fraile"/>
+<input name="_template" type="hidden" value="table"/>
+<input name="_cc" type="hidden" value="contacto@parcelasconrio.cl,contacto@terrazasdelfraile.cl"/>
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_next" type="hidden" value="https://terrazasdelfraile.cl/gracias"/>
+<input name="interes" type="hidden" value="Simulador de crédito directo"/>
+<input data-simulation-summary name="simulacion" type="hidden" value="Monto: $35.900.000; Pie: 30%; Cuotas: 18; Cuota estimada: $1.396.111"/>
+<div class="form-grid">
+<div class="field"><label for="sim-name">Nombre</label><input autocomplete="given-name" id="sim-name" maxlength="80" name="nombre" required=""/></div>
+<div class="field"><label for="sim-lastname">Apellido</label><input autocomplete="family-name" id="sim-lastname" maxlength="80" name="apellido" required=""/></div>
+<div class="field"><label for="sim-email">Correo</label><input autocomplete="email" id="sim-email" maxlength="160" name="email" required="" type="email"/></div>
+<div class="field"><label for="sim-phone">Teléfono</label><input autocomplete="tel" id="sim-phone" maxlength="40" name="telefono" required="" type="tel"/></div>
+<div class="field full"><label for="sim-city">Ciudad</label><input autocomplete="address-level2" id="sim-city" maxlength="100" name="ciudad"/></div>
+<div class="field full"><label for="sim-message">Mensaje</label><textarea id="sim-message" maxlength="3000" name="mensaje" rows="4" placeholder="Cuéntanos si quieres conocer una parcela o coordinar una visita."></textarea></div>
+</div>
+<div class="consent-group">
+<label class="consent-row"><input name="consentimiento_contacto" required="" type="checkbox" value="si"/><span>Autorizo a Terrazas del Fraile a contactarme por WhatsApp, correo electrónico y/o llamadas telefónicas para responder y gestionar mi consulta.</span></label>
+<label class="consent-row"><input name="consentimiento_promociones" required="" type="checkbox" value="si"/><span>Autorizo el envío de información, novedades, ofertas y promociones por los medios de contacto proporcionados.</span></label>
+</div>
+<div class="form-actions"><button class="btn btn-primary" type="submit">Quiero que me contacten</button></div>
+<div aria-live="polite" class="form-status">La simulación seleccionada se enviará junto con tus datos.</div>
+</form>
+</aside>
+</div>
+</div>
+</section>
+
+<section class="dark masterplan-section simulator-masterplan" id="masterplan">
+<div class="container masterplan-heading">
+<div class="eyebrow">Disponibilidad</div>
+<h2>Explora el masterplan.</h2>
+</div>
+<div class="masterplan-narrow">
+<iframe allowfullscreen="" class="masterplan-frame" loading="lazy" src="https://virtualplan360.cl/masterplan/terrazas_del_fraile/index.html" title="Masterplan Terrazas del Fraile"></iframe>
+</div>
+<div class="container">
+<div class="reservation-status">
+<div class="reservation-vertical">
+<span>Parcela 1 — Reservada</span>
+<span>Parcela 7 — Reservada</span>
+<span>Parcela 10 — Reservada</span>
+</div>
+<a class="btn btn-primary" href="/masterplan">Abrir masterplan</a>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="site-footer">
+<div class="container">
+<div class="footer-brand">
+<img alt="Terrazas del Fraile" class="footer-logo" src="assets/logos/logo-white.png"/>
+<p>Un proyecto para vivir, vacacionar o invertir en la Patagonia chilena.</p>
+</div>
+<nav aria-label="Navegación del pie de página" class="footer-menu">
+<a href="/">Inicio</a>
+<a href="/el-proyecto">El Proyecto</a>
+<a href="/marina-lago-frio">Marina Lago Frío</a>
+<a href="/centro-de-ski">Centro de Ski</a>
+<a href="/bosque-nativo">Bosque Nativo</a>
+<a href="/patagonia">Patagonia</a>
+<a href="/masterplan">Masterplan</a>
+<a href="/simulador-credito-directo">Simulador de crédito directo</a>
+<a href="/contacto">Contacto</a>
+</nav>
+<div class="footer-meta">
+<div class="social-links">
+<a aria-label="Instagram de Terrazas del Fraile" class="social-link" href="https://www.instagram.com/terrazasdelfraile/" rel="noopener" target="_blank"><svg aria-hidden="true" viewBox="0 0 24 24"><rect height="18" rx="5" width="18" x="3" y="3"></rect><circle cx="12" cy="12" r="4.2"></circle><circle class="social-dot" cx="17.4" cy="6.7" r="1"></circle></svg><span>Instagram</span></a>
+<a aria-label="Facebook de Terrazas del Fraile" class="social-link" href="https://www.facebook.com/terrazasdelfraile/" rel="noopener" target="_blank"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.2 21v-8h2.8l.4-3h-3.2V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4V10H8v3h2.8v8h3.4z"></path></svg><span>Facebook</span></a>
+</div>
+<div class="footer-contact">
+<a href="tel:+56978893044">+56 9 7889 3044</a>
+<a href="mailto:contacto@terrazasdelfraile.cl">contacto@terrazasdelfraile.cl</a>
+<a href="https://wa.me/56978893044?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Terrazas%20del%20Fraile" rel="noopener" target="_blank">WhatsApp</a>
+</div>
+</div>
+<div class="footer-bottom"><span>© 2026 Terrazas del Fraile</span><span>Patagonia chilena</span></div>
+</div>
+</footer>
+<a aria-label="Abrir conversación por WhatsApp" class="whatsapp" href="https://wa.me/56978893044?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Terrazas%20del%20Fraile" rel="noopener" target="_blank"><img alt="" src="assets/icons/whatsapp.svg"/></a>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js?v=20260823-final"></script>
+</body>
+</html>
