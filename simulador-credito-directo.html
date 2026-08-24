@@ -18,7 +18,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta content="website" property="og:type"/>
 <meta content="assets/logos/logo-header.png" property="og:image"/>
 <link href="assets/logos/isotipo.png" rel="icon"/>
-<link href="assets/css/styles.css?v=20260823-final" rel="stylesheet"/>
+<link href="assets/css/styles.css?v=20260823-v3" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Terrazas del Fraile","url":"https://terrazasdelfraile.cl"}</script>
 <!-- Meta Pixel Code -->
 <script>
@@ -77,7 +77,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="container">
 <div class="eyebrow">Crédito directo</div>
 <h1>Simula tu plan de pago.</h1>
-<p class="lead">Define el monto, el porcentaje de pie y el número de cuotas para obtener una estimación inmediata.</p>
+<p class="lead">Todas las parcelas tienen un precio final de $32.900.000. Elige una modalidad para conocer el pie, el saldo y la cuota aproximada.</p>
 </div>
 </section>
 
@@ -88,54 +88,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="simulator-panel-heading">
 <div>
 <div class="eyebrow">Tu simulación</div>
-<h2 id="simulator-title">Configura una alternativa.</h2>
+<h2 id="simulator-title">Elige tu modalidad.</h2>
 </div>
 <span class="simulator-no-interest">Sin interés</span>
 </div>
 
+<div aria-label="Precio de lanzamiento de las parcelas" class="simulator-price-summary">
+<div><span>Precio normal</span><strong>$35.900.000</strong></div>
+<div class="simulator-price-discount"><span>Descuento de lanzamiento</span><strong>− $3.000.000</strong></div>
+<div class="simulator-price-final"><span>Precio final</span><strong>$32.900.000</strong></div>
+</div>
+
 <form class="simulator-form" data-simulator-form>
-<div class="simulator-field simulator-amount-field">
-<label for="simulator-amount">Monto a simular</label>
-<div class="simulator-currency-input">
-<span aria-hidden="true">$</span>
-<input aria-describedby="amount-help" autocomplete="off" data-sim-amount id="simulator-amount" inputmode="numeric" name="monto_simulado" value="35.900.000"/>
-</div>
-<small id="amount-help">Ingresa el valor total en pesos chilenos.</small>
-</div>
-
 <fieldset class="simulator-fieldset">
-<legend>Porcentaje de pie</legend>
-<div class="simulator-options">
-<label class="simulator-choice"><input checked name="sim-pie" type="radio" value="30"/><span><strong>30%</strong><small>de pie</small></span></label>
-<label class="simulator-choice"><input name="sim-pie" type="radio" value="40"/><span><strong>40%</strong><small>de pie</small></span></label>
-<label class="simulator-choice"><input name="sim-pie" type="radio" value="50"/><span><strong>50%</strong><small>de pie</small></span></label>
+<legend>Selecciona una modalidad de crédito directo</legend>
+<div class="simulator-options simulator-plan-options">
+<label class="simulator-choice simulator-plan-choice"><input checked data-balance="23030000" data-down="9870000" data-installments="18" data-monthly="1279000" name="sim-plan" type="radio" value="30"/><span><strong>30% de pie</strong><small>18 cuotas</small><b>$1.279.000 aprox.</b></span></label>
+<label class="simulator-choice simulator-plan-choice"><input data-balance="19740000" data-down="13160000" data-installments="24" data-monthly="822500" name="sim-plan" type="radio" value="40"/><span><strong>40% de pie</strong><small>24 cuotas</small><b>$822.500 aprox.</b></span></label>
+<label class="simulator-choice simulator-plan-choice"><input data-balance="16450000" data-down="16450000" data-installments="36" data-monthly="456000" name="sim-plan" type="radio" value="50"/><span><strong>50% de pie</strong><small>36 cuotas</small><b>$456.000 aprox.</b></span></label>
 </div>
 </fieldset>
-
-<fieldset class="simulator-fieldset">
-<legend>Número de cuotas</legend>
-<div class="simulator-options">
-<label class="simulator-choice"><input checked name="sim-cuotas" type="radio" value="18"/><span><strong>18</strong><small>cuotas</small></span></label>
-<label class="simulator-choice"><input name="sim-cuotas" type="radio" value="24"/><span><strong>24</strong><small>cuotas</small></span></label>
-<label class="simulator-choice"><input name="sim-cuotas" type="radio" value="36"/><span><strong>36</strong><small>cuotas</small></span></label>
-</div>
-</fieldset>
-
-<button class="btn btn-dark simulator-calculate" type="submit">Actualizar simulación</button>
 </form>
 
 <div aria-live="polite" class="simulator-results">
 <div class="simulator-main-result">
 <span>Cuota mensual estimada</span>
-<strong data-result-monthly>$1.396.111</strong>
+<strong data-result-monthly>$1.279.000</strong>
 <small data-result-plan>18 cuotas · 30% de pie</small>
 </div>
 <div class="simulator-result-grid">
-<div><span>Pie inicial</span><strong data-result-down>$10.770.000</strong></div>
-<div><span>Saldo a financiar</span><strong data-result-balance>$25.130.000</strong></div>
+<div><span>Pie inicial</span><strong data-result-down>$9.870.000</strong></div>
+<div><span>Saldo a financiar</span><strong data-result-balance>$23.030.000</strong></div>
 </div>
 <p class="simulator-disclaimer">Simulación referencial en pesos chilenos. Condiciones y disponibilidad sujetas a confirmación comercial.</p>
-<p class="simulator-disclaimer simulator-uf-disclaimer">Las cuotas se transforman a UF, sin interés.</p>
+<p class="simulator-disclaimer simulator-uf-disclaimer">Las cuotas se transforman a UF, pero sin intereses.</p>
 <a class="btn btn-whatsapp simulator-whatsapp" data-visit-whatsapp href="https://wa.me/56978893044?text=Hola%2C%20quiero%20agendar%20una%20visita%20a%20Terrazas%20del%20Fraile" rel="noopener" target="_blank">Agendar una visita por WhatsApp</a>
 </div>
 </section>
@@ -147,11 +133,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <input autocomplete="off" class="hp-field" name="_honey" tabindex="-1" type="text"/>
 <input name="_subject" type="hidden" value="Nueva simulación de crédito directo — Terrazas del Fraile"/>
 <input name="_template" type="hidden" value="table"/>
-<input name="_cc" type="hidden" value="contacto@parcelasconrio.cl,contacto@terrazasdelfraile.cl"/>
+<input name="_cc" type="hidden" value="contacto@parcelasconrio.cl,contacto@terrazasdelfraile.cl,info@terrazasdelfraile.cl"/>
 <input name="_captcha" type="hidden" value="false"/>
 <input name="_next" type="hidden" value="https://terrazasdelfraile.cl/gracias"/>
 <input name="interes" type="hidden" value="Simulador de crédito directo"/>
-<input data-simulation-summary name="simulacion" type="hidden" value="Monto: $35.900.000; Pie: 30%; Cuotas: 18; Cuota estimada: $1.396.111"/>
+<input data-simulation-summary name="simulacion" type="hidden" value="Precio final: $32.900.000; Pie: 30% ($9.870.000); Saldo: $23.030.000; Cuotas: 18; Cuota estimada: $1.279.000"/>
 <div class="form-grid">
 <div class="field"><label for="sim-name">Nombre</label><input autocomplete="given-name" id="sim-name" maxlength="80" name="nombre" required=""/></div>
 <div class="field"><label for="sim-lastname">Apellido</label><input autocomplete="family-name" id="sim-lastname" maxlength="80" name="apellido" required=""/></div>
@@ -226,6 +212,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 <a aria-label="Abrir conversación por WhatsApp" class="whatsapp" href="https://wa.me/56978893044?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Terrazas%20del%20Fraile" rel="noopener" target="_blank"><img alt="" src="assets/icons/whatsapp.svg"/></a>
 <script src="assets/js/config.js"></script>
-<script src="assets/js/main.js?v=20260823-final"></script>
+<script src="assets/js/main.js?v=20260823-v3"></script>
 </body>
 </html>

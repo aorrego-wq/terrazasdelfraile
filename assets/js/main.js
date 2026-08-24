@@ -118,48 +118,31 @@ document.querySelectorAll('form.contact-form').forEach(form=>{
   if(!root) return;
 
   const form=root.querySelector('[data-simulator-form]');
-  const amountInput=root.querySelector('[data-sim-amount]');
   const monthlyOutput=root.querySelector('[data-result-monthly]');
   const planOutput=root.querySelector('[data-result-plan]');
   const downOutput=root.querySelector('[data-result-down]');
   const balanceOutput=root.querySelector('[data-result-balance]');
   const summaryInput=root.querySelector('[data-simulation-summary]');
   const whatsapp=root.querySelector('[data-visit-whatsapp]');
-  if(!form||!amountInput||!monthlyOutput||!planOutput||!downOutput||!balanceOutput) return;
+  if(!form||!monthlyOutput||!planOutput||!downOutput||!balanceOutput) return;
 
-  const numberFormat=new Intl.NumberFormat('es-CL',{maximumFractionDigits:0});
   const currencyFormat=new Intl.NumberFormat('es-CL',{
     style:'currency',
     currency:'CLP',
     maximumFractionDigits:0
   });
-  const parseAmount=value=>Number(String(value).replace(/\D/g,''))||0;
   const formatCurrency=value=>currencyFormat.format(Math.round(value)).replace('CLP','$').replace(/\s/g,'');
-
-  const setUnavailable=()=>{
-    amountInput.setAttribute('aria-invalid','true');
-    monthlyOutput.textContent='—';
-    planOutput.textContent='Ingresa un monto desde $1.000.000';
-    downOutput.textContent='—';
-    balanceOutput.textContent='—';
-    if(summaryInput) summaryInput.value='Simulacion pendiente: monto no valido';
-    if(whatsapp) whatsapp.setAttribute('aria-disabled','true');
-  };
+  const finalPrice=32900000;
 
   const calculate=()=>{
-    const amount=parseAmount(amountInput.value);
-    const downPercent=Number(form.querySelector('input[name="sim-pie"]:checked')?.value||30);
-    const installments=Number(form.querySelector('input[name="sim-cuotas"]:checked')?.value||18);
-    if(amount<1000000){
-      setUnavailable();
-      return;
-    }
-
-    amountInput.removeAttribute('aria-invalid');
-    const downPayment=Math.round(amount*downPercent/100);
-    const balance=amount-downPayment;
-    const monthly=Math.round(balance/installments);
-    const formattedAmount=formatCurrency(amount);
+    const selected=form.querySelector('input[name="sim-plan"]:checked');
+    if(!selected) return;
+    const downPercent=Number(selected.value);
+    const installments=Number(selected.dataset.installments);
+    const downPayment=Number(selected.dataset.down);
+    const balance=Number(selected.dataset.balance);
+    const monthly=Number(selected.dataset.monthly);
+    const formattedAmount=formatCurrency(finalPrice);
     const formattedDown=formatCurrency(downPayment);
     const formattedBalance=formatCurrency(balance);
     const formattedMonthly=formatCurrency(monthly);
@@ -169,24 +152,14 @@ document.querySelectorAll('form.contact-form').forEach(form=>{
     downOutput.textContent=formattedDown;
     balanceOutput.textContent=formattedBalance;
 
-    const summary=`Monto: ${formattedAmount}; Pie: ${downPercent}% (${formattedDown}); Cuotas: ${installments}; Saldo: ${formattedBalance}; Cuota estimada: ${formattedMonthly}`;
+    const summary=`Precio normal: $35.900.000; Descuento de lanzamiento: $3.000.000; Precio final: ${formattedAmount}; Pie: ${downPercent}% (${formattedDown}); Saldo: ${formattedBalance}; Cuotas: ${installments}; Cuota estimada: ${formattedMonthly}`;
     if(summaryInput) summaryInput.value=summary;
     if(whatsapp){
-      const message=`Hola, quiero agendar una visita a Terrazas del Fraile. Simulé un monto de ${formattedAmount}, con ${downPercent}% de pie y ${installments} cuotas. La cuota estimada es ${formattedMonthly}.`;
+      const message=`Hola, quiero agendar una visita a Terrazas del Fraile. Me interesa la modalidad de ${downPercent}% de pie (${formattedDown}) y ${installments} cuotas aproximadas de ${formattedMonthly}, para el precio final de ${formattedAmount}.`;
       whatsapp.href=`https://wa.me/56978893044?text=${encodeURIComponent(message)}`;
-      whatsapp.removeAttribute('aria-disabled');
     }
   };
 
-  amountInput.addEventListener('input',()=>{
-    const amount=parseAmount(amountInput.value);
-    amountInput.value=amount?numberFormat.format(amount):'';
-    calculate();
-  });
   form.addEventListener('change',calculate);
-  form.addEventListener('submit',event=>{
-    event.preventDefault();
-    calculate();
-  });
   calculate();
 })();
