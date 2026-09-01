@@ -587,3 +587,81 @@ h2{font-size:clamp(1.65rem,2.42vw,2.65rem);line-height:1.12}
   .simulator-result-grid{grid-template-columns:1fr;gap:15px}
   .simulator-whatsapp{padding-inline:14px;font-size:.68rem;letter-spacing:.09em}
 }
+
+/* 2026-08-31 — navegación final, ubicación y nuevos recursos */
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.site-header .nav{gap:28px}
+.nav-links{gap:clamp(14px,1.35vw,24px);font-size:clamp(.64rem,.66vw,.73rem)}
+.nav-links>a:first-child{margin-left:12px}
+.nav-dropdown{position:relative;display:flex;align-items:center;flex:0 0 auto}
+.nav-dropdown-link{padding-right:23px}
+.nav-dropdown-toggle{position:absolute;right:0;display:grid;place-items:center;width:21px;height:28px;padding:0;border:0;background:transparent;color:inherit;cursor:pointer}
+.nav-dropdown-toggle span{display:block;font-size:1.05rem;line-height:1;transition:transform .22s}
+.nav-dropdown.is-open .nav-dropdown-toggle span,.nav-dropdown:hover .nav-dropdown-toggle span,.nav-dropdown:focus-within .nav-dropdown-toggle span{transform:rotate(180deg)}
+.nav-submenu{position:absolute;z-index:50;top:calc(100% + 19px);left:-18px;display:grid;min-width:235px;padding:10px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(27,43,31,.97);box-shadow:0 22px 55px rgba(0,0,0,.22);color:#fff;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s,transform .2s,visibility .2s}
+.nav-submenu:before{content:"";position:absolute;right:0;bottom:100%;left:0;height:20px}
+.nav-submenu a{display:block;padding:11px 13px;border-radius:10px;font-size:.7rem;letter-spacing:.08em;white-space:nowrap}
+.nav-submenu a:after{display:none!important}
+.nav-submenu a:hover,.nav-submenu a:focus-visible{background:rgba(255,255,255,.11)}
+.nav-dropdown:hover .nav-submenu,.nav-dropdown:focus-within .nav-submenu,.nav-dropdown.is-open .nav-submenu{opacity:1;visibility:visible;transform:none}
+.nav-project-overview{display:none!important}
+
+.form-image{background-image:image-set(url('../img/formularios/lago-frio-900.webp') 1x,url('../img/formularios/lago-frio-1600.webp') 2x);background-position:center;background-size:cover}
+
+.location-map-visual{display:grid;grid-template-columns:minmax(315px,.72fr) minmax(0,1.45fr);align-items:stretch;background:var(--forest)}
+.location-map-copy{position:static;display:flex;flex-direction:column;justify-content:center;width:auto;padding:clamp(34px,4.4vw,62px);transform:none;color:#fff}
+.location-map-copy h2{font-size:clamp(1.75rem,2.45vw,2.8rem)}
+.location-map-copy p{font-size:.95rem;line-height:1.58}
+.location-map-copy .btn{align-self:flex-start}
+.location-map-link{display:grid;align-items:center;min-width:0;background:#eef0e9;overflow:hidden}
+.location-map-link picture{display:block;width:100%}
+.location-map-image{width:100%;height:auto;object-fit:contain;transition:transform .35s}
+.location-map-link:hover .location-map-image,.location-map-link:focus-visible .location-map-image{transform:scale(1.015)}
+
+.patagonia-hero{background-position:center}
+.patagonia-hero .lead{color:rgba(255,255,255,.88);font-size:clamp(1.2rem,2.1vw,1.7rem)}
+.patagonia-intro{max-width:900px;margin-bottom:48px}
+.patagonia-intro>p:not(.lead){max-width:820px;color:#596159;font-size:1.05rem}
+.patagonia-places{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.patagonia-place{overflow:hidden;border-radius:24px;background:#fff;border:1px solid rgba(48,64,44,.1);box-shadow:0 14px 38px rgba(28,40,30,.08)}
+.patagonia-place img{width:100%;height:300px;object-fit:cover}
+.patagonia-place>div{padding:25px 27px 28px}
+.patagonia-place span{display:block;margin-bottom:14px;color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:.18em}
+.patagonia-place h3{color:var(--forest);margin-bottom:10px}
+.patagonia-place p{margin:0;color:#596159}
+
+.ski-video-wrap{margin-top:30px}
+.ski-video-wrap video{display:block;width:100%;aspect-ratio:16/9;border-radius:24px;background:#142018;box-shadow:var(--shadow)}
+.ski-video-caption{margin:12px 4px 0;color:#697168;font-size:.84rem}
+
+.marina-gallery .marina-concept{grid-column:1/-1;justify-self:center;width:72%;min-height:0;aspect-ratio:16/9}
+.marina-gallery .marina-concept img{object-fit:contain;background:#d9d2c1}
+.belong-gallery img{filter:saturate(1.04) brightness(1.02)}
+
+@media(max-width:1280px){
+  .nav-links{gap:12px;font-size:.62rem}
+  .site-header .nav{gap:18px}
+}
+
+@media(max-width:1100px){
+  .nav-links>a:first-child{margin-left:0}
+  .nav-dropdown{display:grid;grid-template-columns:auto 36px;width:100%;max-width:340px}
+  .nav-dropdown-link{padding-right:0}
+  .nav-dropdown-toggle{position:static;width:36px;height:34px;justify-self:end;border:1px solid rgba(255,255,255,.3);border-radius:50%}
+  .nav-submenu{position:static;grid-column:1/-1;min-width:0;max-height:0;margin-top:0;padding:0 0 0 16px;border:0;border-left:1px solid rgba(255,255,255,.24);border-radius:0;background:transparent;box-shadow:none;opacity:1;visibility:visible;overflow:hidden;transform:none;transition:max-height .28s ease,margin .28s ease}
+  .nav-submenu:before{display:none}
+  .nav-dropdown.is-open .nav-submenu{max-height:260px;margin-top:12px}
+  .nav-submenu a{padding:10px 12px;font-size:.72rem}
+  .nav-project-overview{display:block!important;color:var(--sand)}
+}
+
+@media(max-width:760px){
+  .location-map-visual{grid-template-columns:1fr}
+  .location-map-copy{order:1;padding:32px 24px}
+  .location-map-link{order:2}
+  .location-map-image{width:100%;max-width:100%;margin:0}
+  .patagonia-places{grid-template-columns:1fr}
+  .patagonia-place img{height:230px}
+  .marina-gallery .marina-concept{width:100%;aspect-ratio:16/10}
+  .ski-video-wrap video{border-radius:18px}
+}
