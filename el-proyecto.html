@@ -19,7 +19,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta content="website" property="og:type"/>
 <meta content="assets/logos/logo-header.png" property="og:image"/>
 <link href="assets/logos/isotipo.png" rel="icon"/>
-<link href="assets/css/styles.css?v=20260823-v3" rel="stylesheet"/>
+<link href="assets/css/styles.css?v=20260831-final" rel="stylesheet"/>
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -45,40 +45,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <header class="site-header">
 <div class="container nav">
-<a class="brand" href="/">
+<a class="brand" href="/" aria-label="Terrazas del Fraile — Inicio">
 <img alt="Terrazas del Fraile" class="brand-light" src="assets/logos/logo-white.png"/>
 <img alt="Terrazas del Fraile" class="brand-dark" src="assets/logos/logo-header.png"/>
 </a>
-<button aria-label="Abrir menú" class="menu-toggle">☰</button>
-<nav class="nav-links">
-<a href="/">Inicio</a>
-<a href="/el-proyecto">El Proyecto</a>
+<button aria-controls="site-navigation" aria-expanded="false" aria-label="Abrir menú" class="menu-toggle" type="button">☰</button>
+<nav aria-label="Navegación principal" class="nav-links" id="site-navigation">
+<a data-nav-route="/" href="/">Inicio</a>
+<div class="nav-dropdown" data-nav-dropdown>
+<a class="nav-dropdown-link" data-nav-route="/el-proyecto" href="/el-proyecto">El Proyecto</a>
+<button aria-controls="project-submenu" aria-expanded="false" aria-label="Abrir opciones de El Proyecto" class="nav-dropdown-toggle" type="button"><span aria-hidden="true">⌄</span></button>
+<div class="nav-submenu" id="project-submenu">
+<a class="nav-project-overview" href="/el-proyecto">Conocer El Proyecto</a>
 <a href="/marina-lago-frio">Marina Lago Frío</a>
 <a href="/centro-de-ski">Centro de Ski</a>
 <a href="/bosque-nativo">Bosque Nativo</a>
-<a href="/patagonia">Patagonia</a>
-<a href="/masterplan">Masterplan</a>
-<a class="nav-simulator" href="/simulador-credito-directo">Simulador de crédito directo</a>
-<a href="/contacto">Contacto</a>
-<span aria-hidden="true" class="nav-divider">
-</span>
-<a aria-label="Instagram de Terrazas del Fraile" class="nav-social" href="https://www.instagram.com/terrazasdelfraile.cl/" rel="noopener" target="_blank">
-<svg aria-hidden="true" viewbox="0 0 24 24">
-<rect height="18" rx="5" width="18" x="3" y="3">
-</rect>
-<circle cx="12" cy="12" r="4.2">
-</circle>
-<circle class="social-dot" cx="17.4" cy="6.7" r="1">
-</circle>
-</svg>
+</div>
+</div>
+<a data-nav-route="/patagonia" href="/patagonia">La Patagonia</a>
+<a data-nav-route="/masterplan" href="/masterplan">Masterplan</a>
+<a class="nav-simulator" data-nav-route="/simulador-credito-directo" href="/simulador-credito-directo">Crédito Directo</a>
+<a data-nav-route="/contacto" href="/contacto">Contacto</a>
+<span aria-hidden="true" class="nav-divider"></span>
+<a aria-label="Instagram de Terrazas del Fraile" class="nav-social" data-track="instagram" href="https://www.instagram.com/terrazasdelfraile.cl/" rel="noopener" target="_blank">
+<svg aria-hidden="true" viewBox="0 0 24 24"><rect height="18" rx="5" width="18" x="3" y="3"></rect><circle cx="12" cy="12" r="4.2"></circle><circle class="social-dot" cx="17.4" cy="6.7" r="1"></circle></svg>
 </a>
-<a aria-label="Facebook de Terrazas del Fraile" class="nav-social" href="https://www.facebook.com/terrazasdelfraile/" rel="noopener" target="_blank">
-<svg aria-hidden="true" viewbox="0 0 24 24">
-<path d="M14.2 21v-8h2.8l.4-3h-3.2V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4V10H8v3h2.8v8h3.4z">
-</path>
-</svg>
+<a aria-label="Facebook de Terrazas del Fraile" class="nav-social" data-track="facebook" href="https://www.facebook.com/terrazasdelfraile/" rel="noopener" target="_blank">
+<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.2 21v-8h2.8l.4-3h-3.2V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4V10H8v3h2.8v8h3.4z"></path></svg>
 </a>
-<a class="nav-phone" href="tel:+56978893044">+56 9 7889 3044</a>
+<a class="nav-phone" data-track="telefono" href="tel:+56978893044">+56 9 7889 3044</a>
 </nav>
 </div>
 </header>
@@ -180,14 +175,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="site-standard-section location-section" data-standard="ubicacion">
 <div class="container">
 <div class="location-map-visual">
-<img alt="Mapa de ubicación de Terrazas del Fraile, Coyhaique, Lago Frío y Lago Pollux" class="location-map-image" decoding="async" height="1080" loading="lazy" src="assets/img/ubicacion/mapa-terrazas-del-fraile.png" width="1920"/>
 <div class="location-map-copy">
-<div class="eyebrow">Ubicación</div>
-<h2>Conectado con Coyhaique y la naturaleza.</h2>
-<p>Terrazas del Fraile se emplaza en el sector El Fraile, en conexión con la Ruta 7 — Carretera Austral.</p>
+<div class="eyebrow">Ubicación del proyecto</div>
+<h2>Conectado con la ciudad, la montaña y Lago Frío.</h2>
+<p>Terrazas del Fraile se emplaza en el sector El Fraile, a 22 minutos de Coyhaique y en conexión con la Ruta 7 — Carretera Austral.</p>
 <p>Desde el proyecto puedes acceder a Lago Frío, Lago Pollux, el Centro de Montaña El Fraile y los principales servicios de Coyhaique.</p>
-<a class="btn btn-outline" href="https://maps.app.goo.gl/EqW9bXFUr24gWtYn7?g_st=aw" rel="noopener" target="_blank">Ver en Google Maps</a>
+<a class="btn btn-outline" data-track="como_llegar" href="https://maps.app.goo.gl/EqW9bXFUr24gWtYn7?g_st=aw" rel="noopener" target="_blank">Cómo llegar</a>
 </div>
+<a aria-label="Abrir la ubicación de Terrazas del Fraile en Google Maps" class="location-map-link" data-track="mapa_ubicacion" href="https://maps.app.goo.gl/EqW9bXFUr24gWtYn7?g_st=aw" rel="noopener" target="_blank">
+<picture>
+<source srcset="assets/img/ubicacion/mapa-terrazas-del-fraile.webp" type="image/webp"/>
+<img alt="Plano de ubicación de Terrazas del Fraile entre Coyhaique, Lago Frío y el Centro de Montaña El Fraile" class="location-map-image" decoding="async" height="1054" loading="lazy" src="assets/img/ubicacion/mapa-terrazas-del-fraile-original.png" width="1492"/>
+</picture>
+</a>
 </div>
 </div>
 </section>
@@ -302,50 +302,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a href="/marina-lago-frio">Marina Lago Frío</a>
 <a href="/centro-de-ski">Centro de Ski</a>
 <a href="/bosque-nativo">Bosque Nativo</a>
-<a href="/patagonia">Patagonia</a>
+<a href="/patagonia">La Patagonia</a>
 <a href="/masterplan">Masterplan</a>
-<a class="nav-simulator" href="/simulador-credito-directo">Simulador de crédito directo</a>
+<a href="/simulador-credito-directo">Crédito Directo</a>
 <a href="/contacto">Contacto</a>
 </nav>
 <div class="footer-meta">
 <div class="social-links">
-<a aria-label="Instagram de Terrazas del Fraile" class="social-link" href="https://www.instagram.com/terrazasdelfraile.cl/" rel="noopener" target="_blank">
-<svg aria-hidden="true" viewbox="0 0 24 24">
-<rect height="18" rx="5" width="18" x="3" y="3">
-</rect>
-<circle cx="12" cy="12" r="4.2">
-</circle>
-<circle class="social-dot" cx="17.4" cy="6.7" r="1">
-</circle>
-</svg>
-<span>Instagram</span>
-</a>
-<a aria-label="Facebook de Terrazas del Fraile" class="social-link" href="https://www.facebook.com/terrazasdelfraile/" rel="noopener" target="_blank">
-<svg aria-hidden="true" viewbox="0 0 24 24">
-<path d="M14.2 21v-8h2.8l.4-3h-3.2V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4V10H8v3h2.8v8h3.4z">
-</path>
-</svg>
-<span>Facebook</span>
-</a>
+<a aria-label="Instagram de Terrazas del Fraile" class="social-link" data-track="instagram" href="https://www.instagram.com/terrazasdelfraile.cl/" rel="noopener" target="_blank"><svg aria-hidden="true" viewBox="0 0 24 24"><rect height="18" rx="5" width="18" x="3" y="3"></rect><circle cx="12" cy="12" r="4.2"></circle><circle class="social-dot" cx="17.4" cy="6.7" r="1"></circle></svg><span>Instagram</span></a>
+<a aria-label="Facebook de Terrazas del Fraile" class="social-link" data-track="facebook" href="https://www.facebook.com/terrazasdelfraile/" rel="noopener" target="_blank"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.2 21v-8h2.8l.4-3h-3.2V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4V10H8v3h2.8v8h3.4z"></path></svg><span>Facebook</span></a>
 </div>
 <div class="footer-contact">
-<a href="tel:+56978893044">+56 9 7889 3044</a>
+<a data-track="telefono" href="tel:+56978893044">+56 9 7889 3044</a>
 <a href="mailto:contacto@terrazasdelfraile.cl">contacto@terrazasdelfraile.cl</a>
-<a href="https://wa.me/56978893044?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Terrazas%20del%20Fraile" rel="noopener" target="_blank">WhatsApp</a>
+<a data-track="whatsapp" href="https://wa.me/56978893044?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Terrazas%20del%20Fraile" rel="noopener" target="_blank">WhatsApp</a>
 </div>
 </div>
-<div class="footer-bottom">
-<span>© 2026 Terrazas del Fraile</span>
-<span>Patagonia chilena</span>
-</div>
+<div class="footer-bottom"><span>© 2026 Terrazas del Fraile</span><span>Patagonia chilena</span></div>
 </div>
 </footer>
-<a aria-label="Abrir conversación por WhatsApp" class="whatsapp" href="https://wa.me/56978893044?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Terrazas%20del%20Fraile" rel="noopener" target="_blank">
+<a aria-label="Abrir conversación por WhatsApp" class="whatsapp" href="https://wa.me/56978893044?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Terrazas%20del%20Fraile" rel="noopener" target="_blank" data-track="whatsapp">
 <img alt="" src="assets/icons/whatsapp.svg"/>
 </a>
 <script src="assets/js/config.js">
 </script>
-<script src="assets/js/main.js?v=20260823-v3">
+<script src="assets/js/main.js?v=20260831-final">
 </script>
 </body>
 </html>
