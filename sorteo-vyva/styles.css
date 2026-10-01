@@ -61,6 +61,14 @@ footer { min-height: 170px; padding: 35px 24px; background: #121a14; color: #d8d
 footer img { width: 180px; height: auto; margin: 0 auto 14px; }
 footer p { margin: 0; font-size: 13px; letter-spacing: .05em; }
 
+.thanks-page { min-height: 100vh; display: grid; place-items: center; padding: 28px; background: linear-gradient(rgba(31,44,34,.82), rgba(31,44,34,.9)), url('assets/lago-frio.webp') center / cover no-repeat; }
+.thanks-card { width: min(680px, 100%); padding: clamp(34px, 7vw, 70px); border-top: 5px solid var(--sand); border-radius: 4px; background: rgba(255,255,255,.97); box-shadow: 0 22px 70px rgba(10,18,12,.28); text-align: center; }
+.thanks-card img { width: min(360px, 82%); height: auto; margin: 0 auto 34px; }
+.thanks-card h1 { max-width: none; margin-bottom: 20px; color: var(--forest-deep); font-size: clamp(42px, 7vw, 68px); }
+.thanks-card p { max-width: 520px; margin: 0 auto 18px; color: #4f5650; font-size: 18px; }
+.thanks-card .secondary-button { display: inline-block; min-width: 250px; margin-top: 18px; }
+.thanks-note { font-size: 13px !important; }
+
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; }
   .hero-copy { padding: 64px 24px; }
@@ -78,4 +86,6 @@ footer p { margin: 0; font-size: 13px; letter-spacing: .05em; }
   .form-grid .full { grid-column: auto; }
   .content-wrap { padding: 48px 14px 64px; }
   .form-card, .project-card { padding: 30px 22px; }
+  .thanks-page { padding: 16px; }
+  .thanks-card { padding: 36px 22px; }
 }
