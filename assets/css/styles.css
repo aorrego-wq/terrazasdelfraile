@@ -665,3 +665,9 @@ h2{font-size:clamp(1.65rem,2.42vw,2.65rem);line-height:1.12}
   .marina-gallery .marina-concept{width:100%;aspect-ratio:16/10}
   .ski-video-wrap video{border-radius:18px}
 }
+
+/* Reservas: dos filas y dos columnas */
+.reservation-vertical{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:12px;width:min(68vw,680px)}
+.reservation-vertical span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:44px}
+@media(max-width:980px){.reservation-vertical{width:min(88vw,680px)}}
+@media(max-width:640px){.reservation-vertical{width:100%;gap:8px}.reservation-vertical span{padding:10px 6px;font-size:.76rem}}
