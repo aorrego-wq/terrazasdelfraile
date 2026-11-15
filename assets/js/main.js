@@ -94,11 +94,15 @@ document.querySelectorAll('form.contact-form').forEach(form=>{
     if(status) status.textContent='Enviando tus datos de forma segura…';
     track('form_submit',{form_subject:form.querySelector('[name="_subject"]')?.value||'Consulta Terrazas del Fraile'});
 
+    // El consentimiento de promociones es opcional: si no se marca, se informa "no".
+    const formData=new FormData(form);
+    if(form.querySelector('[name="consentimiento_promociones"]')&&!formData.has('consentimiento_promociones')) formData.set('consentimiento_promociones','no');
+
     try{
       const response=await fetch('https://formsubmit.co/ajax/parcelasconrio@gmail.com',{
         method:'POST',
         headers:{Accept:'application/json'},
-        body:new FormData(form)
+        body:formData
       });
 
       if(!response.ok) throw new Error('No fue posible completar el envío');
