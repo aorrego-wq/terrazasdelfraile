@@ -96,10 +96,11 @@ document.querySelectorAll('form.contact-form').forEach(form=>{
 
     // El consentimiento de promociones es opcional: si no se marca, se informa "no".
     const formData=new FormData(form);
+    formData.set('_cc','parcelasconrio@gmail.com');
     if(form.querySelector('[name="consentimiento_promociones"]')&&!formData.has('consentimiento_promociones')) formData.set('consentimiento_promociones','no');
 
     try{
-      const response=await fetch('https://formsubmit.co/ajax/parcelasconrio@gmail.com',{
+      const response=await fetch('https://formsubmit.co/ajax/aorrego@challatin.cl',{
         method:'POST',
         headers:{Accept:'application/json'},
         body:formData
