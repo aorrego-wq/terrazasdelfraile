@@ -107,7 +107,7 @@ document.querySelectorAll('form.contact-form').forEach(form=>{
 
       if(!response.ok) throw new Error('No fue posible completar el envío');
       track('form_submit_success',{form_subject:form.querySelector('[name="_subject"]')?.value||'Consulta Terrazas del Fraile'});
-      location.href='https://terrazasdelfraile.cl/gracias';
+      setTimeout(()=>{location.href='https://terrazasdelfraile.cl/gracias'},600);
     }catch(error){
       track('form_submit_error',{form_subject:form.querySelector('[name="_subject"]')?.value||'Consulta Terrazas del Fraile'});
       if(status) status.textContent='No pudimos enviar tu consulta. Inténtalo nuevamente.';
@@ -241,4 +241,97 @@ document.querySelectorAll('form.contact-form').forEach(form=>{
 
   form.addEventListener('change',calculate);
   calculate();
+})();
+
+// ===== Píxel de Meta: eventos para remarketing (mismo píxel que parcelasconrio.cl) =====
+(()=>{
+  const PROJ={content_name:'Terrazas del Fraile',content_ids:['terrazas-del-fraile'],content_type:'product',content_category:'Parcelas Aysén',proyecto:'terrazas-del-fraile',region:'Aysén',value:30900000,currency:'CLP'};
+  const path=location.pathname.replace(/\.html$/,'').replace(/\/$/,'')||'/';
+  const base=extra=>({...PROJ,pagina:path,...(extra||{})});
+  const px=(ev,params,std,opts)=>{try{window.fbq&&window.fbq(std?'track':'trackCustom',ev,params||{},opts||{})}catch(e){}};
+  const done={};
+  const px1=(key,ev,params,std)=>{if(done[key])return;done[key]=1;px(ev,params,std)};
+  window.tdfPixel=px;
+
+  // Páginas
+  const pages={'/el-proyecto':'VerProyecto','/masterplan':'VerMasterplan','/simulador-credito-directo':'VerSimulador','/contacto':'VerContacto','/marina-lago-frio':'VerMarina','/centro-de-ski':'VerCentroSki','/bosque-nativo':'VerBosqueNativo','/vida-outdoor':'VerVidaOutdoor','/pesca':'VerPesca','/coyhaique':'VerCoyhaique','/patagonia':'VerPatagonia','/english':'VerIngles','/gracias':'PaginaGracias'};
+  if(path==='/'||['/el-proyecto','/masterplan','/simulador-credito-directo'].includes(path)) px('ViewContent',base(),true);
+  if(pages[path]) px(pages[path],base());
+
+  // Los eventos que ya se envían a dataLayer se replican en el píxel
+  const dl=window.dataLayer=window.dataLayer||[];
+  const push=dl.push.bind(dl);
+  dl.push=(...items)=>{
+    items.forEach(it=>{
+      if(!it||typeof it!=='object') return;
+      const p=base({cta:it.cta,href:it.href});
+      if(it.event==='cta_click'){
+        if(it.cta==='whatsapp'||/wa\.me/.test(it.href||'')){px('Contact',{...p,metodo:'whatsapp'},true);px('ClicWhatsApp',p);}
+        else if(it.cta==='masterplan') px('VerMasterplan',p);
+        else if(it.cta==='credito_directo') px('ClicSimulador',p);
+        else if(it.cta==='mapa_ubicacion'){px('FindLocation',p,true);px('ComoLlegar',p);}
+        else px('ClicCTA',p);
+      }
+      if(it.event==='form_submit') px('FormularioEnviado',base({asunto:it.form_subject}));
+      if(it.event==='form_submit_success'){
+        const eid='lead-'+Date.now()+'-'+Math.random().toString(36).slice(2,8);
+        px('Lead',base({asunto:it.form_subject}),true,{eventID:eid});
+        px('LeadTerrazas',base({asunto:it.form_subject}));
+      }
+      if(it.event==='form_submit_error') px('FormularioError',base());
+    });
+    return push(...items);
+  };
+
+  // Clics no cubiertos: correo, teléfono, brochure, redes
+  document.addEventListener('click',e=>{
+    const a=e.target.closest('a'); if(!a) return;
+    const h=a.getAttribute('href')||'';
+    if(/^mailto:/.test(h)){px('Contact',base({metodo:'correo'}),true);px('ClicCorreo',base());}
+    else if(/^tel:/.test(h)){px('Contact',base({metodo:'telefono'}),true);px('ClicTelefono',base());}
+    else if(/drive\.google|brochure/i.test(h)) px('DescargaBrochure',base());
+    else if(/instagram\.com|facebook\.com/.test(h)) px('ClicRedSocial',base({red:/instagram/.test(h)?'instagram':'facebook'}));
+  },true);
+
+  // Simulador
+  const sim=document.querySelector('[data-simulator-form]');
+  if(sim) sim.addEventListener('change',()=>{
+    const s=sim.querySelector('input[name="sim-plan"]:checked');
+    px1('sim','CustomizeProduct',base(),true);
+    px('SimuladorUsado',base({pie:s&&s.value,cuotas:s&&s.dataset.installments}));
+  });
+  const simWa=document.querySelector('[data-visit-whatsapp]');
+  if(simWa) simWa.addEventListener('click',()=>px('SimulacionWhatsApp',base()));
+
+  // Formulario iniciado (para recuperar abandonos)
+  document.querySelectorAll('form.contact-form').forEach(f=>f.addEventListener('focusin',()=>px1('fi','FormularioIniciado',base())));
+
+  // Secciones vistas
+  if('IntersectionObserver' in window){
+    [['.price-card','VerPrecios'],['[data-credit-simulator]','VerSimuladorSeccion'],['form.contact-form','VerFormulario'],['iframe[src*="masterplan"],iframe[src*="virtualplan"]','VerMasterplan']].forEach(([sel,ev])=>{
+      const el=document.querySelector(sel); if(!el) return;
+      const o=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){px1('s'+ev,ev,base());o.disconnect()}}),{threshold:.35});
+      o.observe(el);
+    });
+  }
+
+  // Scroll y tiempo activo
+  addEventListener('scroll',()=>{
+    const d=document.documentElement,pct=(scrollY+innerHeight)/d.scrollHeight*100;
+    [25,50,75,90].forEach(m=>{if(pct>=m) px1('sc'+m,'Scroll'+m,base())});
+  },{passive:true});
+  let active=0;const t=setInterval(()=>{
+    if(document.hidden) return; active+=5;
+    if(active===30) px('Tiempo30s',base());
+    if(active===90){px('Tiempo90s',base());px('VisitanteComprometido',base());}
+    if(active===180){px('Tiempo3min',base());clearInterval(t);}
+  },5000);
+
+  // Videos con controles (no los del hero de estaciones)
+  document.querySelectorAll('video').forEach(v=>{
+    if(v.closest('[data-seasonal-hero]')||v.classList.contains('season-video')) return;
+    const n=(v.currentSrc||v.getAttribute('src')||'video').split('/').pop();
+    v.addEventListener('play',()=>px1('vp'+n,'VideoReproducido',base({video:n})));
+    v.addEventListener('timeupdate',()=>{if(!v.duration)return;const r=v.currentTime/v.duration;if(r>=.5)px1('v50'+n,'Video50',base({video:n}));if(r>=.95)px1('v95'+n,'VideoCompleto',base({video:n}));});
+  });
 })();
